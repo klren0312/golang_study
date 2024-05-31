@@ -42,6 +42,11 @@ func Announce(message string, delay time.Duration) {
 }
 
 func main() {
+	a := 10
+	b := &a
+	fmt.Printf("a:%d ptr:%p\n", a, &a)
+	fmt.Printf("b:%p type:%T\n", b, b)
+	fmt.Println(&b)
 	log.SetPrefix("greeting: ")
 	log.SetFlags(0)
 	// fmt.Println(quote.Go())
@@ -57,6 +62,13 @@ func main() {
 		log.Fatal(err1)
 	}
 	fmt.Println(messages)
+
+	var n int
+	fmt.Println(&n)
+	var p *int
+	p = &n
+	*p = 20
+	fmt.Println(n)
 	// b()
 	// deferTest()
 	// var (
